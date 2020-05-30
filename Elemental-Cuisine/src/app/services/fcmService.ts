@@ -99,5 +99,4 @@ export class FcmService {
 
     return this.http.post("https://fcm.googleapis.com/fcm/send", body, { headers: this.headers }).subscribe();
   }
-
 }

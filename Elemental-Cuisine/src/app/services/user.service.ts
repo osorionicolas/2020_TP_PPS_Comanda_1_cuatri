@@ -47,5 +47,4 @@ export class UserService {
   deleteDocument(collection:string, user: any) {
     return this.dataService.deleteDocument(collection, user.id);
   }
-
 }

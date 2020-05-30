@@ -8,7 +8,7 @@ import { PollService } from 'src/app/services/poll.service';
   styleUrls: ['./poll-client-list.page.scss'],
 })
 export class PollClientListPage implements OnInit {
-  
+
   private polls: Array<Poll>;
 
   constructor(
