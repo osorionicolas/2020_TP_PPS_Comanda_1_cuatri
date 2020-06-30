@@ -257,6 +257,10 @@ export class OrderListPage implements OnInit {
       console.log('antes de borrar', orders);
       delete orders[orderWithUser.index];
       this.orderService.saveOrder(orderWithUser.id, orders);
+      this.notificationService.presentToast('La orden fue cancelada', TypeNotification.Error, "bottom", false);
+      this.fcmService.getTokensById(orderWithUser.id).then(userDevices => {
+        this.fcmService.sendNotification('Su pedido fue cancelado', 'El mozo no confirmo su pedido', userDevices);
+      })
     });
   }
 
