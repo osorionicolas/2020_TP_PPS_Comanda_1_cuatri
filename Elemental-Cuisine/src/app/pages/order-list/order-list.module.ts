@@ -1,3 +1,4 @@
+import { OrderDetailEmployeesComponent } from './../../components/order-detail-employees/order-detail-employees.component';
 import { FcmService } from './../../services/fcmService';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,7 +24,9 @@ const routes: Routes = [
     ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [OrderListPage],
+  declarations: [OrderListPage, OrderDetailEmployeesComponent],
+  entryComponents: [OrderDetailEmployeesComponent],
   providers:[FcmService]
+  
 })
 export class OrderListPageModule {}

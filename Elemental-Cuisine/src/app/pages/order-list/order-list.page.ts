@@ -1,4 +1,5 @@
-import { AlertController } from '@ionic/angular';
+import { OrderDetailEmployeesComponent } from './../../components/order-detail-employees/order-detail-employees.component';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Table } from './../../classes/table';
 import { TableService } from './../../services/table.service';
 import { CurrentAttentionService } from './../../services/currentAttention.service';
@@ -51,7 +52,8 @@ export class OrderListPage implements OnInit {
     private loadingService: LoadingService,
     private currentAttentionService: CurrentAttentionService,
     private tableService: TableService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -275,9 +277,30 @@ export class OrderListPage implements OnInit {
   }
 
 
-  showDetails(selectedOrder: OrderWithUser) {
+  showDetails1(selectedOrder: OrderWithUser) {
     this.loadingService.showLoading();
     this.createAlert(selectedOrder);
+  }
+
+  async showDetails(orderWithUser: OrderWithUser): Promise<void> {
+    this.loadingService.showLoading();
+    const detailsModal = await this.modalController.create({
+      component: OrderDetailEmployeesComponent,
+      componentProps: { orderWithUser }
+    });
+    detailsModal.onDidDismiss().then((response) => {
+      var quantity = (response.data) ? parseInt(response.data) : null;
+      // if (quantity) {
+      //   this.order.menu.push({ ...product, quantity: quantity });
+      //   this.order.total += product.price * quantity;
+
+      //   if (product.managerProfile == Profiles.Chef)
+      //     this.order.statusFood = Status.PendingConfirm;
+      //   if (product.managerProfile == Profiles.Bartender)
+      //     this.order.statusDrink = Status.PendingConfirm;
+      // }
+    });
+    return await detailsModal.present();
   }
 
   createAlert(selectedOrder: OrderWithUser) {
