@@ -25,7 +25,7 @@ export class SmartAudioService {
           };
           this.sounds.push(audio);
       } else {
-          this.nativeAudio.preloadComplex(key, asset, 100, 1, 0)
+          this.nativeAudio.preloadSimple(key, asset)
           .catch(error => {
               alert('Error in preload:' + error + ' ' + key + ' ' + asset);
           });
@@ -41,16 +41,16 @@ export class SmartAudioService {
     play(key) {
       if(this.active){
         const audio = this.sounds.find((sound) => {
-            return sound.key === key;
+          return sound.key === key;
         });
         if (audio.type === 'html5') {
-            const audioAsset = new Audio(audio.asset);
-            audioAsset.play();
+          const audioAsset = new Audio(audio.asset);
+          audioAsset.play();
         } else {
           this.nativeAudio.play(audio.key).then((res) => {
-              console.log(res);
+              console.log("Succes: " + res);
           }, (err) => {
-              console.log(err);
+              console.log("Error: " + err);
           });
         }
       }
