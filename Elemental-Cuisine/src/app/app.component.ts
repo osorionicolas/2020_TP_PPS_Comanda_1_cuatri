@@ -13,7 +13,7 @@ import { FcmService } from './services/fcmService';
 })
 export class AppComponent {
 
-  showSplash: Boolean = false;
+  showSplash: Boolean = true;
 
   constructor(
     private platform: Platform,
@@ -27,7 +27,6 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      // DESCOMENTAR_EN_PRODUCCION
       this.smartAudioService.preload('login', 'assets/sounds/login.mp3');
       this.smartAudioService.preload('simon1', 'assets/sounds/simon/simon1.mp3');
       this.smartAudioService.preload('simon2', 'assets/sounds/simon/simon2.mp3');
