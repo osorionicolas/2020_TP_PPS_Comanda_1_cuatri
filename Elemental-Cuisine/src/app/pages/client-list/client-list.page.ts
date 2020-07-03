@@ -1,4 +1,3 @@
-import { AuthService } from 'src/app/services/auth.service';
 import { EmailService } from './../../services/email.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/classes/user';

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { WaitListPage } from './wait-list.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { TableListPage } from '../table-list/table-list.page';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [WaitListPage]
+  declarations: [WaitListPage],
+  entryComponents: [TableListPage]
 })
 export class WaitListPageModule {}

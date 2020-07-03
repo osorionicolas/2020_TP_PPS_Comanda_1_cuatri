@@ -26,6 +26,7 @@ export class ClientHomeComponent implements OnInit {
 
   currentUser: User;
   Status = Status;
+  private maitreSelectTable: boolean;
 
   constructor(
     private authService: AuthService,
@@ -45,6 +46,7 @@ export class ClientHomeComponent implements OnInit {
     this.userService.getUser(user.uid).subscribe(userData => {
       this.currentUser = Object.assign(new User, userData);
     })
+    this.dataService.getChanges(Collections.Configurations, "configuracion").subscribe((configs: any) => this.maitreSelectTable = configs.seleccionDeMesaPorMaitre)
   }
 
   ngOnInit() { }
@@ -60,23 +62,6 @@ export class ClientHomeComponent implements OnInit {
     else {
       this.addToWaitList();
     }
-  }
-
-  scanTableQR() {
-    if (this.currentUser.status == Status.CanTakeTable) {
-      if (this.qrscannerService.device == "mobile") {
-        this.qrscannerService.scanQr().then(tableId => {
-          this.assignTableToUser(tableId, this.currentUser.id);
-        });
-      }
-      else {
-        this.assignTableToUser("4LqjxvRh8GNCiJ9Xwq9S", this.currentUser.id); // HARDCODED
-      }
-    }
-    else {
-      this.notificationService.presentToast("Su solicitud aún no ha sido aprobada por el metre", TypeNotification.Warning, "top");
-    }
-
   }
 
   addToWaitList() {
@@ -105,22 +90,54 @@ export class ClientHomeComponent implements OnInit {
     this.authService.logOut();
   }
 
-  assignTableToUser(tableId, userId) {
-    this.tableService.getTableById(tableId).then(table => {
-      let currentTable = Object.assign(new Table, table.data());
-      if (currentTable.status != Status.Available) {
-        this.notificationService.presentToast(`Mesa N.° ${currentTable.number} ${currentTable.status}`, TypeNotification.Error, "top");
+  scanTableQR() {
+    if (this.currentUser.status == Status.CanTakeTable) {
+      if (this.qrscannerService.device == "mobile") {
+        this.qrscannerService.scanQr().then(tableId => {
+          this.assignTableToUser(tableId, this.currentUser.id);
+        });
       }
       else {
-        this.dataService.setStatus(Collections.Tables, tableId, Status.Busy);
-        this.dataService.setStatus(Collections.Users, userId, Status.Attended);
-        this.dataService.deleteDocument(Collections.WaitList, userId);
-
-        var attention = new Attention(tableId);
-        this.currentAttentionService.saveAttention(userId, attention);
-
-        this.notificationService.presentToast(`Mesa N.° ${currentTable.number} asignada`, TypeNotification.Success, "top");
+        this.assignTableToUser("4LqjxvRh8GNCiJ9Xwq9S", this.currentUser.id); // HARDCODED
       }
-    });
+    }
+    else {
+      this.notificationService.presentToast("Su solicitud aún no ha sido aprobada por el maitre", TypeNotification.Warning, "top");
+    }
+  }
+
+  assignTableToUser(tableId, userId) {
+    if(this.maitreSelectTable){
+      this.currentAttentionService.getAttentionById(userId).then(attention => {
+        if(attention.data().tableId == tableId){
+          this.dataService.setStatus(Collections.Users, userId, Status.Attended);
+          this.tableService.getTableById(tableId).then(table => {
+            this.notificationService.presentToast(`Mesa N.° ${table.data().number} asignada`, TypeNotification.Success, "top");
+          })
+        }
+        else{
+          this.tableService.getTableById(tableId).then(table => {
+            this.notificationService.presentToast(`Esta no es su mesa asignada, su mesa es la N.° ${table.data().number}`, TypeNotification.Error, "top");
+          })
+        }
+      })
+    }
+    else {
+      this.tableService.getTableById(tableId).then(table => {
+        let currentTable = Object.assign(new Table, table.data());
+        if (currentTable.status != Status.Available) {
+          this.notificationService.presentToast(`Mesa N.° ${currentTable.number} ${currentTable.status}`, TypeNotification.Error, "top");
+        }
+        else {
+          this.dataService.setStatus(Collections.Tables, tableId, Status.Busy);
+          this.dataService.setStatus(Collections.Users, userId, Status.Attended);
+
+          var attention = new Attention(tableId);
+          this.currentAttentionService.saveAttention(userId, attention);
+
+          this.notificationService.presentToast(`Mesa N.° ${currentTable.number} asignada`, TypeNotification.Success, "top");
+        }
+      });
+    }
   }
 }

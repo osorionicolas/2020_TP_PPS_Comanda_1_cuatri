@@ -26,8 +26,6 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private alertController: AlertController,
-    private cameraService: CameraService,
     private loadingService: LoadingService,
     public modalController: ModalController
   ) {

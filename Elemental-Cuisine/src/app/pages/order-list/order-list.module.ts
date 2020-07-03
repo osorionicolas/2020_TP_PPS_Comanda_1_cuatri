@@ -8,8 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { OrderListPage } from './order-list.page';
 
-import { PipesModule } from 'src/app/pipes/pipes.module';
-
 const routes: Routes = [
   {
     path: '',
@@ -23,8 +21,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ComponentsModule,
-    RouterModule.forChild(routes),
-    PipesModule
+    RouterModule.forChild(routes)
   ],
   declarations: [OrderListPage],
   providers:[FcmService]

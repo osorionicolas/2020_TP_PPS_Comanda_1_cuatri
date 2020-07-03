@@ -22,7 +22,7 @@ export class ProductDetailsComponent implements OnInit {
   };
 
   constructor(
-    private modalCtrl: ModalController,
+    private modalController: ModalController,
     private cameraService: CameraService,
     private loadingService: LoadingService
   ) { }
@@ -55,10 +55,10 @@ export class ProductDetailsComponent implements OnInit {
 
   dismiss(isClosed): void {
     if(isClosed){
-      this.modalCtrl.dismiss();
+      this.modalController.dismiss();
     }
     else{
-      this.modalCtrl.dismiss(this.quantity);
+      this.modalController.dismiss(this.quantity);
     }
   }
 }
