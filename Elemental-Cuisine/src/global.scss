@@ -33,13 +33,6 @@ ion-title {
     text-align: center;
 }
 
-// .background {
-//     height    : 100%;
-//     width     : 100%;
-//     position  : fixed;
-//     background: rgba(168, 231, 168, 0.9);
-// }
-
 .btnCancel {
     color: red !important;
 }
@@ -66,7 +59,7 @@ ion-title {
 ion-content {
     position: relative;
     height: 100%;
-    --background: url(assets/images/dinner-opacity-40.jpg) no-repeat center;
+    --background: url(assets/images/dinner-opacity-20.jpg) no-repeat center;
 }
 
 .transparent{

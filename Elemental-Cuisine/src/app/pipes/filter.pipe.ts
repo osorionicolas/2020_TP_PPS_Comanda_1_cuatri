@@ -1,4 +1,3 @@
-import { User } from 'src/app/classes/user';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

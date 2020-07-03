@@ -3,6 +3,11 @@
 <ion-content>
   <ion-item color="transparent">
     <ion-label>Sonidos</ion-label>
-    <ion-toggle (ionChange)="activateSounds()" [(ngModel)]="isActive" checked="{{isActive}}" color="danger"></ion-toggle>
+    <ion-toggle (ionChange)="activateSounds()" [(ngModel)]="isSoundActive" checked="{{isSoundActive}}" color="danger"></ion-toggle>
+  </ion-item>
+
+  <ion-item color="transparent">
+    <ion-label>Manejo de asignación de mesas</ion-label>
+    <ion-toggle (ionChange)="tableHandler()" [(ngModel)]="maitreSelectTable" checked="{{maitreSelectTable}}" color="danger"></ion-toggle>
   </ion-item>
 </ion-content>

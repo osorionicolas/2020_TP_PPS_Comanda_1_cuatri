@@ -1,0 +1,28 @@
+<ion-content class="ion-padding">
+
+  <ion-card id="menu-content">
+
+    <ion-icon size="large" (click)="dismiss(true)" name="close" color="danger" id="dismiss"></ion-icon>
+
+    <br>
+
+    <ion-card-header>
+      <ion-card-title>Mesa Nro. : {{orderWithUser.currentTable}}</ion-card-title>
+      <ion-card-subtitle>{{orderWithUser.user.name}} {{orderWithUser.user.surname }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item style="margin:10px auto;" *ngFor="let product of orderWithUser.order.menu" color="transparent" class="item item-text-wrap">
+        <ion-icon slot="end" class="item-ico"
+          [src]="product.managerProfile === Profiles.Bartender? 'assets/icon/pendingPreparationDrinks.svg' : 'assets/icon/pendingPreparationFoods.svg'">
+        </ion-icon>
+        <div>x{{product.quantity}} {{product.name}} {{product.description}}</div>
+      </ion-item>
+
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

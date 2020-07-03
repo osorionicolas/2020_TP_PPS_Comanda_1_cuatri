@@ -1,12 +1,26 @@
-<app-custom-header [title]="'Mesas'" [icon]="'add-circle'" [iconColor]="'success'" (onClick)="routerToLink()"></app-custom-header>
+<app-custom-header *ngIf="!isMaitre" [title]="'Mesas'" [icon]="'add-circle'" [iconColor]="'success'" (onClick)="routerToLink()"></app-custom-header>
+<app-custom-header *ngIf="isMaitre"  [title]="'Mesas'" [icon]="'close'" (onClick)="dismiss()"></app-custom-header>
 
 <ion-content>
-  <ion-list class="transparent">
+  <ion-list *ngIf="!isMaitre" class="transparent">
     <ion-item *ngFor="let table of tables" color="transparent">
       <ion-icon class="icon-right-margin" src="assets/icon/mesa.svg"></ion-icon>
       <ion-label>Mesa {{table.number}}</ion-label>
-      <ion-button color="medium" (click)="modifyTable($event)" routerLink="/modificar/mesa/{{table.id}}"><ion-icon name="create"></ion-icon></ion-button>
+      <ion-button color="medium" (click)="modifyTable($event, table)"><ion-icon name="create"></ion-icon></ion-button>
       <ion-button color="danger" (click)="deleteTable($event, table)"><ion-icon name="trash"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+  
+  <div id="empty" *ngIf="isMaitre && availableTables?.length == 0">
+    <ion-icon class="item-ico" src="assets/icon/mesa.svg"></ion-icon>
+    <h3>No hay mesas disponibles</h3>
+  </div>
+
+  <ion-list *ngIf="isMaitre" class="transparent">
+    <ion-item *ngFor="let table of availableTables" color="transparent">
+      <ion-icon class="icon-right-margin" src="assets/icon/mesa.svg"></ion-icon>
+      <ion-label>Mesa {{table.number}}</ion-label>
+      <ion-button color="success" (click)="dismiss(table)"><ion-icon name="checkmark"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

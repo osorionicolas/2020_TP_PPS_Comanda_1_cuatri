@@ -7,12 +7,12 @@ ion-item {
     position: absolute;
     bottom: 0;
     width: 99%;
-    height: 10%;
+    height: 8%;
 }
 
 #scroll {
     overflow: auto;
-    height: 89%;
+    height: 90.5%;
 }
 
 .item-ico {
@@ -37,3 +37,6 @@ ion-list-header > ion-icon {
     margin-left: 1.03em;
 }
 
+ion-card {
+    background-color: white;
+}

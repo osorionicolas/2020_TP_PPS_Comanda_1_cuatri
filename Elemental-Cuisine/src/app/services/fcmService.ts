@@ -45,10 +45,9 @@ export class FcmService {
 
   notificationSetup() {
       this.fcm.onNotification().subscribe(data => {
-        this.smartAudioService.play("login")
+        this.smartAudioService.play("notification")
         if(!data.wasTapped){
           //Aplicación en primer plano
-          console.log("Primer plano: " + JSON.stringify(data))
           this.notificationService.presentToast(data.body,"primary","top", true);
         }
       }, error => {
