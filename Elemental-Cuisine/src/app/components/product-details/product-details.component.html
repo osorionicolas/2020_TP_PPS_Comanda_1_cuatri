@@ -27,9 +27,9 @@
   </ion-item>
   
   <div class="ion-text-center quantityDiv">
-    <ion-icon class="ion-float-left quantity" name="remove" (click)="decrement()"></ion-icon>
+    <ion-icon class="ion-float-left quantity quantityButtons" name="remove" (click)="decrement()"></ion-icon>
       <span class="quantity">{{quantity}}</span>
-    <ion-icon class="ion-float-right quantity" name="add" (click)="increment()"></ion-icon>
+    <ion-icon class="ion-float-right quantity quantityButtons" name="add" (click)="increment()"></ion-icon>
   </div>
   <ion-button id="confirm" (click)="dismiss(false)">Agregar al pedido</ion-button>
 </ion-content>
