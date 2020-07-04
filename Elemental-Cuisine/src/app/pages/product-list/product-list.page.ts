@@ -61,10 +61,6 @@ export class ProductListPage implements OnInit {
     event.stopPropagation();
   }
 
-  showDetails(product) {
-    console.log(product);
-  }
-
   routerToLink() {
     this.router.navigateByUrl("/registro/producto");
   }

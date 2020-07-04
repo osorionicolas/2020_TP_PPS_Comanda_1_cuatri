@@ -1,7 +1,6 @@
 <app-custom-header [title]="'Pedido'"></app-custom-header>
 
 <ion-content>
-  <!-- <div id="scroll"> -->
   <ion-button color="primary" [disabled]="orders.length == 0" expand="block" size="small" (click)="payBill()">
     <ion-icon slot="start" name="paper"></ion-icon>
     Solicitar Cuenta
@@ -15,18 +14,18 @@
         <h2>Pedido {{i + 1}}</h2>
 
         <ion-button slot="end" color="primary"
-          *ngIf="(order.statusFood == Status.Delivered || order.statusFood == undefined) && (order.statusDrink == Status.Delivered || order.statusDrink == undefined)"
+          *ngIf="validateOrder(order, 'checkmark')"
           color="success" (click)="confirm(i)">
           <ion-icon name="checkmark"></ion-icon>
         </ion-button>
-        <ion-button slot="end" *ngIf="validateOrder(order)" color="primary" (click)="showDetails(i)">
+        <ion-button slot="end" *ngIf="validateOrder(order, 'timer')" color="primary" (click)="showDetails(i)">
           <ion-icon name="timer"></ion-icon>
         </ion-button>
 
       </ion-item>
       <ion-card-content>
         <ion-item *ngFor="let menu of order.menu"
-          [disabled]="order.statusFood == Status.Confirmed && order.statusDrink == Status.Confirmed"
+          [disabled]="validateOrder(order, 'disabled')"
           color="transparent">
           <span>x{{menu.quantity}} {{menu.name}}</span>
           <span slot="end">${{menu.price * menu.quantity}}</span>

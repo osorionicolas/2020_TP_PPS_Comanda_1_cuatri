@@ -44,13 +44,11 @@ export class OrderDetailEmployeesComponent implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private cameraService: CameraService,
     private loadingService: LoadingService
   ) { }
 
   ngOnInit() {
       this.loadingService.closeLoading(undefined, undefined, undefined, 1000);
-      console.log(this.orderWithUser);
   }
 
 

@@ -27,6 +27,7 @@ export class TableListPage implements OnInit {
         table.id = tableAux.payload.doc.id;
         return table;
       });
+      this.tables.sort((a,b) => a.number - b.number)
       this.availableTables = this.tables.filter(table => table.status == Status.Available);
     });
   }

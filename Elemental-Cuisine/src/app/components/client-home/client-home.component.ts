@@ -108,15 +108,16 @@ export class ClientHomeComponent implements OnInit {
 
   assignTableToUser(tableId, userId) {
     if(this.maitreSelectTable){
-      this.currentAttentionService.getAttentionById(userId).then(attention => {
-        if(attention.data().tableId == tableId){
+      this.currentAttentionService.getAttentionById(userId).then(response => {
+        const attention = response.data() as Attention
+        if(attention.tableId == tableId){
           this.dataService.setStatus(Collections.Users, userId, Status.Attended);
           this.tableService.getTableById(tableId).then(table => {
             this.notificationService.presentToast(`Mesa N.° ${table.data().number} asignada`, TypeNotification.Success, "top");
           })
         }
         else{
-          this.tableService.getTableById(tableId).then(table => {
+          this.tableService.getTableById(attention.tableId).then(table => {
             this.notificationService.presentToast(`Esta no es su mesa asignada, su mesa es la N.° ${table.data().number}`, TypeNotification.Error, "top");
           })
         }
