@@ -215,15 +215,15 @@ ___
 <tr> 
 
 <td>
-<img src="https://i.ibb.co/Srb6JDp/Splash.gif" height="600">
+<img src="https://i.ibb.co/Srb6JDp/Splash.gif" height="432">
 <td>
 
 <td>
-<img src="https://i.ibb.co/yFFbswR/login.png" height="600">
+<img src="https://i.ibb.co/yFFbswR/login.png" height="432">
 </td>
 
 <td>
-<img src="https://i.ibb.co/dMM8XyJ/carta.png" height="600">
+<img src="https://i.ibb.co/dMM8XyJ/carta.png" height="432">
 </td>
 
 <tr>
