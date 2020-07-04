@@ -157,7 +157,7 @@ ___
 |---|---|---|---|---|
 | T | Juego 1 | 14/06/2020 | - | Pendiente |
 | 35 | Cliente solicita la cuenta | 15/06/2020 | 16/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 ___
 
 #### Brian Pariz (branch: *bpariz*) :tiger:
@@ -166,19 +166,143 @@ ___
 |---|---|---|---|---|
 | U | Juego 2 | - | 23/06/2020 | Finalizado |
 | 19| Mozo cierra la cuenta | 24/06/2020 | 24/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 ___
 
 #### Joaquín Enriquez (branch: *jenriquez*) :frog:
 
 | Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
 |---|---|---|---|---|
-| V | Juego 3 | 22/06/2020 | - | Finalizado |
+| V | Juego 3 | 22/06/2020 | 27/06/2020 | Finalizado |
 | M | El mozo entrega el pedido | 23/06/2020 | 23/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 
 ___
-## Instalación
+### Semana 6  :date:
+
+#### Nicolás Osorio (branch: *nosorio*) :wolf:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 41 | Gestión de pedidos por Delivery | 29/06/2020 | 02/07/2020 | Finalizado |
+| 35 | Login con Facebook | 28/06/2020 | 28/06/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
+___
+
+#### Brian Pariz (branch: *bpariz*) :tiger:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 13| Diseño y consolidación de estilos | 29/06/2020 | 03/07/2020 | Finalizado |
+| 40| Cagar masiva de datos | 03/07/2020 | 03/07/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
+___
+
+#### Joaquín Enriquez (branch: *jenriquez*) :frog:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 38 | Login con Google | 29/06/2020 | 03/07/2020 | Finalizado |
+| 39 | Detalle del contenido del pedido por los empleados | 03/07/2020 | 03/07/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
+___
+## Instalación :wrench:
+
+> Clonar el repositorio
+
+```shell
+$ git clone https://github.com/osorionicolas/2020_TP_PPS_Comanda_1_cuatri.git
+```
+
+> Luego dentro de la carpeta del proyecto instalar las dependencias
+
+```shell
+$ npm install
+```
+
+> Por último compilarlo para su dispositivo
+
+```shell
+$ ionic cordova build android
+```
 
 ___
-## Screenshots
+## Screenshots :framed_picture:
+
+<table width="100%" cellspacing="10" cellpadding="10">
+
+<tr> 
+
+<td width="50%">
+<img src="https://i.ibb.co/Srb6JDp/Splash.gif" >
+</td>
+
+<td>
+<img src="https://i.ibb.co/yFFbswR/login.png" >
+</td>
+
+</tr>
+
+<tr>
+
+<td width="50%">
+<img src="https://i.ibb.co/dMM8XyJ/carta.png">
+</td>
+
+<td width="50%">
+<img src="https://i.ibb.co/RThR0wk/pedido.png">
+</td>
+
+
+</tr>
+
+<tr>
+
+<td width="50%">
+<img src="https://i.ibb.co/7rwjjLJ/admin1.png">
+</td>
+
+<td width="50%">
+<img src="https://i.ibb.co/ZSNbDt0/admin2.png">
+</td>
+
+
+</tr>
+
+<tr>
+
+<td width="50%">
+<img src="https://i.ibb.co/W5452cj/menu.png">
+</td>
+
+<td width="50%">
+<img src="https://i.ibb.co/nLzYccR/encuesta.png">
+</td>
+
+
+
+</tr>
+
+<tr>
+
+<td width="50%">
+<img src="https://i.ibb.co/yykLNvr/juego2.png">
+</td>
+
+<td width="50%">
+<img src="https://i.ibb.co/t80H00P/juego.png">
+</td>
+
+
+
+</tr>
+
+
+
+
+</table>
+
+___
+## Dudas / Sugerencias :speech_balloon:
+Envíenos sus comentarios o sugerencias a elementalcusine@gmail.com
+___
