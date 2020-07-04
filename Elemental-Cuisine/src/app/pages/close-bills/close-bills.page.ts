@@ -9,6 +9,7 @@ import { Collections } from 'src/app/classes/enums/collections';
 import { DataService } from 'src/app/services/data.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { Router } from '@angular/router';
+import { TypeNotification } from 'src/app/classes/enums/TypeNotification';
 
 @Component({
   selector: 'app-close-bills',
@@ -60,5 +61,7 @@ export class CloseBillsPage implements OnInit {
     this.currentAttentionService.deleteAttention(id);
 
     this.pendingBills = this.pendingBills.filter(x => x.id != id);
+
+    this.notificationService.presentToast("La cuenta se cerró de forma exitosa", TypeNotification.Info, "bottom");
   }
 }
