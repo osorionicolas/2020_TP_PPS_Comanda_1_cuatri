@@ -211,7 +211,7 @@ ___
 ___
 ## Screenshots
 
-<table>
+<table style="margin: auto; width: calc(100% - 40px);>
 
 <tr> 
 
