@@ -11,6 +11,9 @@ import { QrscannerService } from 'src/app/services/qrscanner.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { FcmService } from 'src/app/services/fcmService';
 import { Profiles } from 'src/app/classes/enums/profiles';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/classes/user';
+import { TableService } from 'src/app/services/table.service';
 
 @Component({
   selector: 'app-payment',
@@ -25,7 +28,7 @@ export class PaymentPage implements OnInit {
   private freeDrink: any;
   private freeDessert: any;
   private total: number;
-  private currentUser;
+  private currentUser: User;
   private tip: number;
 
   constructor(
@@ -35,11 +38,15 @@ export class PaymentPage implements OnInit {
     private attentionService: CurrentAttentionService,
     private qrScannerService: QrscannerService,
     private notificationService: NotificationService,
-    private fcmService: FcmService
+    private fcmService: FcmService,
+    private userService: UserService,
+    private currentAttentionService: CurrentAttentionService,
+    private tableService: TableService
   ) { 
-    this.currentUser = this.authService.getCurrentUser();
-    if (isNullOrUndefined(this.currentUser)) this.router.navigateByUrl("/login");
-    const userId = this.currentUser.uid
+    let user = this.authService.getCurrentUser();
+    if (isNullOrUndefined(user)) this.router.navigateByUrl("/login");
+    const userId = user.uid
+    this.userService.getUserById(userId).then(user => this.currentUser = user.data() as User)
     this.orderService.getOrderById(userId).then(orders => {
       this.orders = Object.values(orders.data())
       this.menus = this.orders.map(order => order.menu).flat()
@@ -54,9 +61,7 @@ export class PaymentPage implements OnInit {
       this.attentionService.getAttentionById(userId).then(currentAttention => {
         this.attention = currentAttention.data() as Attention;
       })
-
     });
-
   }
 
   ngOnInit() {
@@ -64,21 +69,24 @@ export class PaymentPage implements OnInit {
 
   payBill(){
     this.attention.billRequested = true;
-    this.attentionService.modifyAttention(this.currentUser.uid, this.attention);
+    this.attentionService.modifyAttention(this.currentUser.id, this.attention);
     this.notificationService.presentToast("La cuenta ha sido solicitada", "success", "top");
     this.router.navigateByUrl("/inicio");
-    this.fcmService.getTokensByProfile(Profiles.Waiter).then(waiterDevices => {
-      // Agregar numero de mesa
-      this.fcmService.sendNotification(
-        "Nuevo cuenta solicitada",
-        `El cliente ${this.currentUser.name} ${this.currentUser.surname} ha solicitado su cuenta`,
-        waiterDevices);
+
+    Promise.all([this.currentAttentionService.getAttentionById(this.currentUser.id), this.fcmService.getTokensByProfile(Profiles.Waiter)]).then(values => {
+      this.tableService.getTableById(values[0].data().tableId).then(table => {
+        this.fcmService.sendNotification(
+          "Nuevo cuenta solicitada",
+          `El cliente ${this.currentUser.name} ${this.currentUser.surname} de la mesa N.° ${table.data().number} ha solicitado su cuenta`,
+          values[1]);
+      })
     })
   }
 
   getTotal(){
     const discount = (this.attention && this.attention.discount) ? this.total * 10 / 100 : 0;
-    const freeItems = (this.freeDessert && this.freeDessert.price) ? this.freeDessert.price : 0 + (this.freeDrink && this.freeDrink.price) ? this.freeDrink.price : 0;
+    let freeItems = (this.freeDessert && this.freeDessert.price) ? this.freeDessert.price : 0 
+    freeItems += (this.freeDrink && this.freeDrink.price) ? this.freeDrink.price : 0;
     const tip = (this.tip) ? (this.total - discount - freeItems) * this.tip / 100 : 0;
     const total = this.total - discount - freeItems + tip;
     return total;

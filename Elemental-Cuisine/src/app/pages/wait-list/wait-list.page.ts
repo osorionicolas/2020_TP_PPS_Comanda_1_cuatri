@@ -56,7 +56,6 @@ export class WaitListPage implements OnInit {
   }
 
   showTables(user: User){
-
     if(this.maitreSelectTable) this.showModal(user);
     else this.removeClient(user)
   }

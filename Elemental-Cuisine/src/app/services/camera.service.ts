@@ -33,8 +33,7 @@ export class CameraService {
       //tomo url de foto en Firebase Storage
       return pictures.putString(image, "data_url").then(() => {
         return pictures.getDownloadURL().then((url) => {
-          this.notificationService.presentToast("Foto guardada con éxito.", "success", "bottom");
-          // alert("Foto guardada con éxito: " + url);
+          this.notificationService.presentToast("Foto guardada con éxito.", "success", "top");
           return url;
         });
       });

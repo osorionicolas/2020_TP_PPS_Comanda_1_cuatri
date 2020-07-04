@@ -91,8 +91,20 @@ export class OrderDetailsPage implements OnInit {
     this.orderService.saveOrder(this.currentUser.uid, this.orders.map((obj) => { return Object.assign({}, obj) }));
   }
 
-  validateOrder(order){
-    return ((order.statusFood != Status.Confirmed && order.statusFood != Status.Delivered) ||
-      (order.statusDrink != Status.Confirmed && order.statusDrink != Status.Delivered))
+  validateOrder(order, validation){
+
+    const isConfirmed = (order) => (order.statusFood == Status.Confirmed || order.statusFood == undefined) && 
+      (order.statusDrink == Status.Confirmed || order.statusDrink == undefined);
+    const isDelivered = (order) => (order.statusFood == Status.Delivered || order.statusFood == undefined) && 
+      (order.statusDrink == Status.Delivered || order.statusDrink == undefined);
+
+    switch(validation){
+      case "checkmark":
+        return isDelivered(order);
+      case "timer":
+        return !isConfirmed(order) && !isDelivered(order);
+      case "disabled":
+        return isConfirmed(order);
+    }
   }
 }
