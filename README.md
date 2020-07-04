@@ -212,21 +212,74 @@ ___
 ## Screenshots
 
 <table>
+
 <tr> 
 
 <td>
-<img src="https://i.ibb.co/Srb6JDp/Splash.gif" height="432">
-<td>
-
-<td>
-<img src="https://i.ibb.co/yFFbswR/login.png" height="432">
+<img src="https://i.ibb.co/Srb6JDp/Splash.gif" height="540">
 </td>
 
 <td>
-<img src="https://i.ibb.co/dMM8XyJ/carta.png" height="432">
+<img src="https://i.ibb.co/yFFbswR/login.png" height="540">
 </td>
+
+</tr>
 
 <tr>
+
+<td>
+<img src="https://i.ibb.co/dMM8XyJ/carta.png" height="540">
+</td>
+
+<td>
+<img src="https://i.ibb.co/RThR0wk/pedido.png" height="540">
+</td>
+
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://i.ibb.co/7rwjjLJ/admin1.png" height="540">
+</td>
+
+<td>
+<img src="https://i.ibb.co/ZSNbDt0/admin2.png" height="540">
+</td>
+
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://i.ibb.co/W5452cj/menu.png" height="540">
+</td>
+
+<td>
+<img src="https://i.ibb.co/nLzYccR/encuesta.png" height="540">
+</td>
+
+
+
+</tr>
+
+<tr>
+
+<td>
+<img src="https://i.ibb.co/yykLNvr/juego2.png" height="540">
+</td>
+
+<td>
+<img src="https://i.ibb.co/t80H00P/juego.png" height="540">
+</td>
+
+
+
+</tr>
+
+
 
 
 </table>
