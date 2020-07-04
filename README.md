@@ -157,7 +157,7 @@ ___
 |---|---|---|---|---|
 | T | Juego 1 | 14/06/2020 | - | Pendiente |
 | 35 | Cliente solicita la cuenta | 15/06/2020 | 16/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 ___
 
 #### Brian Pariz (branch: *bpariz*) :tiger:
@@ -166,19 +166,69 @@ ___
 |---|---|---|---|---|
 | U | Juego 2 | - | 23/06/2020 | Finalizado |
 | 19| Mozo cierra la cuenta | 24/06/2020 | 24/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 ___
 
 #### Joaquín Enriquez (branch: *jenriquez*) :frog:
 
 | Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
 |---|---|---|---|---|
-| V | Juego 3 | 22/06/2020 | - | Finalizado |
+| V | Juego 3 | 22/06/2020 | 27/06/2020 | Finalizado |
 | M | El mozo entrega el pedido | 23/06/2020 | 23/06/2020 | Finalizado |
-| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | - | Pendiente |
+| - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 
+___
+### Semana 6  :date:
+
+#### Nicolás Osorio (branch: *nosorio*) :wolf:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 41 | Gestión de pedidos por Delivery | 29/06/2020 | 02/07/2020 | Finalizado |
+| 35 | Login con Facebook | 28/06/2020 | 28/06/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
+___
+
+#### Brian Pariz (branch: *bpariz*) :tiger:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 13| Diseño y consolidación de estilos | 29/06/2020 | 03/07/2020 | Finalizado |
+| 40| Cagar masiva de datos | 03/07/2020 | 03/07/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
+___
+
+#### Joaquín Enriquez (branch: *jenriquez*) :frog:
+
+| Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
+|---|---|---|---|---|
+| 38 | Login con Google | 29/06/2020 | 03/07/2020 | Finalizado |
+| 39 | Detalle del contenido del pedido por los empleados | 03/07/2020 | 03/07/2020 | Finalizado |
+| - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
 ___
 ## Instalación
 
 ___
 ## Screenshots
+
+<table>
+<tr> 
+
+<td>
+<img src="https://i.ibb.co/Srb6JDp/Splash.gif" height="600">
+<td>
+
+<td>
+<img src="https://i.ibb.co/yFFbswR/login.png" height="600">
+</td>
+
+<td>
+<img src="https://i.ibb.co/dMM8XyJ/carta.png" height="600">
+</td>
+
+<tr>
+
+
+</table>
+
+
