@@ -206,10 +206,28 @@ ___
 | 39 | Detalle del contenido del pedido por los empleados | 03/07/2020 | 03/07/2020 | Finalizado |
 | - | Pruebas del sistema completo y corrección de errores varios | 01/07/2020 | 04/07/2020 | Finalizado |
 ___
-## Instalación
+## Instalación :wrench:
+
+> Clonar el repositorio
+
+```shell
+$ git clone https://github.com/osorionicolas/2020_TP_PPS_Comanda_1_cuatri.git
+```
+
+> Luego dentro de la carpeta del proyecto instalar las dependencias
+
+```shell
+$ npm install
+```
+
+> Por último compilarlo para su dispositivo
+
+```shell
+$ ionic cordova build android
+```
 
 ___
-## Screenshots
+## Screenshots :framed_picture:
 
 <table width="100%" cellspacing="10" cellpadding="10">
 
@@ -284,71 +302,7 @@ ___
 
 </table>
 
-
 ___
-## Códigos QR de ejemplo
-
-<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
-
-<tr>
-
-<th>Lista de espera</th>
-
-<th>Encuesta</th>
-
-</tr>
-
-<tr>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/hdfKTsW/encuestas.png">
-</td>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/hdfKTsW/encuestas.png">
-</td>
-
-</tr>
-
-</table>
-
-<table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
-
-<tr>
-
-<th>Propina $0</th>
-
-<th>Propina $5</th>
-
-<th>Propina $10</th>
-
-<th>Propina $15</th>
-
-<th>Propina $20</th>
-
-</tr>
-
-<tr>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/vPPwFZc/0.png">
-</td>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/m4vvFNX/5.png">
-</td>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/58Z7JJ0/10.png">
-</td>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/jWz1TM6/15.pngg">
-</td>
-
-<td rowspan="2" valign="middle" align="left">
-<img src="https://i.ibb.co/S6ppfN5/20.png">
-</td>
-
-</tr>
-</table>
+## Dudas / Sugerencias :speech_balloon:
+Envíenos sus comentarios o sugerencias a elementalcusine@gmail.com
+___
