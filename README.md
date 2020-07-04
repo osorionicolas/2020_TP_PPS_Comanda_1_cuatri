@@ -211,7 +211,7 @@ ___
 ___
 ## Screenshots
 
-<table width="100%">
+<table width="100%" cellspacing="10" cellpadding="10">
 
 <tr> 
 
@@ -285,3 +285,70 @@ ___
 </table>
 
 
+___
+## Códigos QR de ejemplo
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+
+<tr>
+
+<th>Lista de espera</th>
+
+<th>Encuesta</th>
+
+</tr>
+
+<tr>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/hdfKTsW/encuestas.png">
+</td>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/hdfKTsW/encuestas.png">
+</td>
+
+</tr>
+
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" bordercolor="#000000">
+
+<tr>
+
+<th>Propina $0</th>
+
+<th>Propina $5</th>
+
+<th>Propina $10</th>
+
+<th>Propina $15</th>
+
+<th>Propina $20</th>
+
+</tr>
+
+<tr>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/vPPwFZc/0.png">
+</td>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/m4vvFNX/5.png">
+</td>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/58Z7JJ0/10.png">
+</td>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/jWz1TM6/15.pngg">
+</td>
+
+<td rowspan="2" valign="middle" align="left">
+<img src="https://i.ibb.co/S6ppfN5/20.png">
+</td>
+
+</tr>
+</table>
