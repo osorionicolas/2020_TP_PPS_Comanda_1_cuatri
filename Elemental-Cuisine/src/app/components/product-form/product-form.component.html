@@ -53,7 +53,7 @@
 
   <ion-item [disabled]="this.profile == Profiles.Bartender">
     <ion-label position="floating">Categoría</ion-label>
-    <ion-select formControlName="category"
+    <ion-select formControlName="category" okText="Aceptar" cancelText="Cancelar"
       [placeholder]="this.profile == Profiles.Bartender ? 'Bebida' : 'Seleccione una categoría'">
       <ion-select-option value="food">Comida</ion-select-option>
       <ion-select-option *ngIf="this.profile == Profiles.Owner" value="drink">Bebida</ion-select-option>
