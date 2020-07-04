@@ -44,7 +44,7 @@
     <ion-list-header>¿Como fue la atención del mozo?</ion-list-header>
     <ion-item>
       <ion-label>Atención del mozo</ion-label>
-      <ion-select [(ngModel)]="poll.waiterRate">
+      <ion-select [(ngModel)]="poll.waiterRate" okText="Aceptar" cancelText="Cancelar">
         <ion-select-option value="Muy mala">Muy mala</ion-select-option>
         <ion-select-option value="Mala">Mala</ion-select-option>
         <ion-select-option value="Regular">Regular</ion-select-option>
