@@ -25,7 +25,6 @@ export class FcmService {
 
   getToken() {
     this.fcm.getToken().then(token => {
-      console.log(token);
       this.saveToken(token);
     }).catch(error => {
       console.log("Error getting token: " + error);
@@ -75,7 +74,6 @@ export class FcmService {
   getTokensById(id){
     return new Promise((resolve) => { 
       this.dataService.getOne(Collections.Devices, id).then(device => {
-        console.log(device.data());
         let deviceById = device.data().token;
         resolve(deviceById);
       });
@@ -83,7 +81,6 @@ export class FcmService {
   }
 
   sendNotification(title: string, message: string, to: unknown, redirectTo?: string) {
-    console.log(to);
     let body = {
       "notification":{
         "title": title,

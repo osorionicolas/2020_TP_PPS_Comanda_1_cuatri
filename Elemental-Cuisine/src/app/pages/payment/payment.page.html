@@ -25,11 +25,11 @@
         </ion-item>
         <ion-item *ngIf="attention?.freeDrink == true && freeDrink">
           <span>Bebida gratis</span>
-          <span slot="end">${{freeDrink?.name}}</span>
+          <span slot="end">{{freeDrink?.name}} (${{freeDrink?.price}})</span>
         </ion-item>
-        <ion-item *ngIf="attention?.freeDessert == true && freeDesert">
+        <ion-item *ngIf="attention?.freeDessert == true && freeDessert">
           <span>Postre gratis</span>
-          <span slot="end">${{freeDessert?.name}}</span>
+          <span slot="end">{{freeDessert?.name}} (${{freeDessert?.price}})</span>
         </ion-item>
       </ion-card-content>
 

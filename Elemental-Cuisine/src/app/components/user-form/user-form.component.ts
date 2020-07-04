@@ -171,7 +171,7 @@ export class UserFormComponent implements OnInit {
             this.fcmService.sendNotification("Nuevo cliente!", 'Se requiere su aprobación', userDevices);
           });
           this.router.navigateByUrl('/login');
-          this.notificationService.presentToast("Espere a que su cuenta sea confirmada", "primary", "middle");
+          this.notificationService.presentToast("Espere a que su cuenta sea confirmada", "primary", "top");
         }
         else {
           this.notificationService.presentToast("Usuario creado", "success", "bottom");
