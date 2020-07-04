@@ -155,8 +155,8 @@ ___
 
 | Tarea | Descripción | Fecha Inicio | Fecha Fin | Estado |
 |---|---|---|---|---|
-| T | Juego 1 | 14/06/2020 | - | Pendiente |
-| 35 | Cliente solicita la cuenta | 15/06/2020 | 16/06/2020 | Finalizado |
+| T | Juego 1 | 23/06/2020 | 25/06/2020 | Finalizado |
+| 35 | Cliente solicita la cuenta | 21/06/2020 | 21/06/2020 | Finalizado |
 | - | Correción de errores y preparación de videos para pre-entrega | 20/06/2020 | 28/06/2020 | Finalizado |
 ___
 
