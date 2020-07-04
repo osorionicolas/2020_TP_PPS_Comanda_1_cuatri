@@ -96,7 +96,7 @@
 
       <ion-item *ngFor="let orderWithUser of preparedOrders">
         <ion-icon class="item-ico" [src]="orderWithUser.profile === Profiles.Bartender? 'assets/icon/preparedDrinks.svg' : 'assets/icon/preparedFoods.svg'"></ion-icon>
-        <ion-label (click)="showDetails(orderWithUser)">Mesa:{{ orderWithUser.user.currentTable }} | {{ orderWithUser.user.name }} {{ orderWithUser.user.surname }}</ion-label>
+        <ion-label (click)="showDetails(orderWithUser)">Mesa:{{ orderWithUser.currentTable }} | {{ orderWithUser.user.name }} {{ orderWithUser.user.surname }}</ion-label>
         <ion-button color="primary"
           (click)="updateOrderStatus(orderWithUser, Status.Delivered)">
           <ion-icon src="assets/icon/double-check.svg"></ion-icon>

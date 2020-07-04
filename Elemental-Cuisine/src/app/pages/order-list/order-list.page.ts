@@ -220,7 +220,7 @@ export class OrderListPage implements OnInit {
 
         case Status.Prepared:
           this.notificationService.presentToast('Finalización de la preparación del pedido', TypeNotification.Info, "bottom", false);
-          this.sendNotificationByProfile(Profiles.Waiter, 'Se finalizó la preparación del pedido!', `El pedido de la mesa ${selectedOrder.user.currentTable} se encuentra listo`);
+          this.sendNotificationByProfile(Profiles.Waiter, 'Se finalizó la preparación del pedido!', `El pedido de la mesa ${selectedOrder.currentTable} se encuentra listo`);
           break;
 
         case Status.Delivered:
@@ -243,6 +243,7 @@ export class OrderListPage implements OnInit {
       let attention = attentionData.data() as Attention;
       return this.tableService.getTableById(attention.tableId).then(tableData => {
         let table = tableData.data() as Table;
+        console.log(table);
         return table.number;
       });
     });
@@ -255,9 +256,12 @@ export class OrderListPage implements OnInit {
       console.log('antes de borrar', orders);
       delete orders[orderWithUser.index];
       this.orderService.saveOrder(orderWithUser.id, orders);
+      this.notificationService.presentToast('La orden fue cancelada', TypeNotification.Error, "bottom", false);
+      this.fcmService.getTokensById(orderWithUser.id).then(userDevices => {
+        this.fcmService.sendNotification('Su pedido fue cancelado', 'El mozo no confirmo su pedido', userDevices);
+      })
     });
   }
-
 
 
   private getOrderType(products: Product[]): OrderType {
@@ -276,12 +280,6 @@ export class OrderListPage implements OnInit {
     return auxReturn;
   }
 
-
-  showDetails1(selectedOrder: OrderWithUser) {
-    this.loadingService.showLoading();
-    this.createAlert(selectedOrder);
-  }
-
   async showDetails(orderWithUser: OrderWithUser): Promise<void> {
     this.loadingService.showLoading();
     const detailsModal = await this.modalController.create({
@@ -290,61 +288,9 @@ export class OrderListPage implements OnInit {
     });
     detailsModal.onDidDismiss().then((response) => {
       var quantity = (response.data) ? parseInt(response.data) : null;
-      // if (quantity) {
-      //   this.order.menu.push({ ...product, quantity: quantity });
-      //   this.order.total += product.price * quantity;
-
-      //   if (product.managerProfile == Profiles.Chef)
-      //     this.order.statusFood = Status.PendingConfirm;
-      //   if (product.managerProfile == Profiles.Bartender)
-      //     this.order.statusDrink = Status.PendingConfirm;
-      // }
     });
     return await detailsModal.present();
   }
-
-  createAlert(selectedOrder: OrderWithUser) {
-    let productList = '';
-    let products = selectedOrder.order.menu as Product[];
-    products.forEach(product => {
-      productList +=
-        `<ion-item>
-          <ion-label class="ion-text-wrap">
-            <ion-text><h3><b>${product.name} ${product.description}</b></h3></ion-text>
-            <ion-text><p>x${product['quantity']}</p></ion-text>
-          </ion-label>
-        </ion-item>`
-    });
-
-    let message = `<div>${productList}</div>`;
-
-    this.loadingService.closeLoading(undefined, undefined, undefined, 1000);
-    return this.showAlert(selectedOrder, message);
-  }
-
-  async showAlert(selectedOrder: OrderWithUser, message: string) {
-    const alert = await this.alertController.create({
-
-      header: `Mesa Nro. ${selectedOrder.currentTable}`,
-      subHeader: `${selectedOrder.user.name} ${selectedOrder.user.surname}`,
-      message: message,
-      buttons: [
-        {
-          text: 'Aceptar',
-          handler: () => {
-            alert.dismiss(false);
-            return false;
-          }
-        }
-      ]
-    });
-    alert.present();
-    return alert.onDidDismiss().then((data) => {
-      return data;
-    })
-  }
-
-
 }
 
 /* #endregion */
