@@ -33,10 +33,10 @@ export class AppComponent {
       this.smartAudioService.preload('simon2', 'assets/sounds/simon/simon2.mp3');
       this.smartAudioService.preload('simon3', 'assets/sounds/simon/simon3.mp3');
       this.smartAudioService.preload('simon4', 'assets/sounds/simon/simon4.mp3');
-      /*timer(1000).subscribe( () => {
+      timer(1000).subscribe( () => {
         this.showSplash = true;
         this.smartAudioService.play("login");
-      });*/
+      });
       timer(6000).subscribe( () => {
         this.showSplash = false;
       });
