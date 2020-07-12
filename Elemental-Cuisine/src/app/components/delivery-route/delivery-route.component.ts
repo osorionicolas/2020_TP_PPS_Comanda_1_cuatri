@@ -86,7 +86,8 @@ export class DeliveryRouteComponent implements OnInit, AfterViewInit {
   }
 
   geocode(latitude, longitude){
-    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyA7j2g8L3aaLrjH8J7EGhA3-FHs_oZqE4w`);
+    const key = ""
+    return this.http.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${key}`);
   }
 
   // Permite tener un buscado de direcciones correspondientes a Argentina
