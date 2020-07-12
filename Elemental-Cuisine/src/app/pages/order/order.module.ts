@@ -24,7 +24,7 @@ const routes: Routes = [
     ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [OrderPage, ProductDetailsComponent],
+  declarations: [OrderPage],
   entryComponents: [ProductDetailsComponent]
 
 })

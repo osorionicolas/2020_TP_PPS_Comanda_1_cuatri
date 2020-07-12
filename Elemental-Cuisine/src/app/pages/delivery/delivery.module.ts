@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { DeliveryPage } from './delivery.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ProductDetailsComponent } from 'src/app/components/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DeliveryPage, DeliveryRouteComponent]
+  declarations: [DeliveryPage, DeliveryRouteComponent],
+  entryComponents: [ProductDetailsComponent]
 })
 export class DeliveryPageModule { }
